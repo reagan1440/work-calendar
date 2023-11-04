@@ -2,6 +2,26 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
+$(document).ready(function () {
+  var currentDay = time().format("dddd, MMMM, YYYY");
+  $("#curentDay").text(currentDay);
+
+var past = document.querySelector(".past")
+var present = document.querySelector(".present")
+var future = document.querySelector(".future")
+
+var currentHour = time().hours();
+for (var i = 9; i < 17; i++) {
+var colorKey = "";
+if  (i < currentHour) {
+  colorKey = past;
+} else if (i === currentHour) {
+  colorKey = present;
+} else {
+  colorKey = future;
+}
+}})
+
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
