@@ -1,6 +1,3 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
 $(function () {
 $(document).ready(function () {
   var currentDay = time().format("dddd, MMMM, YYYY");
@@ -20,8 +17,47 @@ if  (i < currentHour) {
 } else {
   colorKey = future;
 }
+
+hourInput8 = localStorage.getItem('hour-8');
+$('#hour-8 .description').val(hourInput8);
+hourInput9 = localStorage.getItem('hour-9');
+$('#hour-9 .description').val(hourInput9);
+hourInput10 = localStorage.getItem('hour-10');
+$('#hour-10 .description').val(hourInput10);
+hourInput11 = localStorage.getItem('hour-11');
+$('#hour-11 .description').val(hourInput11);
+hourInput12 = localStorage.getItem('hour-12');
+$('#hour-12 .description').val(hourInput12);
+hourInput13 = localStorage.getItem('hour-13');
+$('#hour-13 .description').val(hourInput8);
+hourInput14 = localStorage.getItem('hour-14');
+$('#hour-14 .description').val(hourInput14);
+hourInput15 = localStorage.getItem('hour-15');
+$('#hour-15 .description').val(hourInput15);
+hourInput16 = localStorage.getItem('hour-16');
+$('#hour-16 .description').val(hourInput16);
+hourInput17 = localStorage.getItem('hour-17');
+$('#hour-17 .description').val(hourInput17);
+     //Create the rows. 
+     var rowEl = $("<div>").addClass("row time-block").attr("id", i);
+      
+     //Create the hour, text, and save button elements for the rows. 
+     var hourEl = $("<div>").addClass("col-2 hour").text(hourDisplay);
+     var textAreaEl = $("<textarea>").addClass("col-8 description " + colorKey).val(localStorage.getItem(i));
+     //Saves the hour and text entry to local storage on save button click.
+     var button = $("<button>").addClass("col-2 saveBtn").attr("id", i).click(function () { 
+         var hourKey = $(this).attr("id");
+         var activity = $(this).siblings(".description").val();
+         localStorage.setItem(hourKey, activity);
+     });
+
+     //Font Awesome save disk icon.
+     var icon = $("<i>").addClass("fas fa-save");
+     $(".container").append(rowEl.append(hourEl, textAreaEl, button.append(icon)));
+ 
 }})
 
+      
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
