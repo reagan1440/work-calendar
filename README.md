@@ -14,4 +14,4 @@ This Work Day Scheduler displays the current day across the header. The text box
 <br>Moment.js
 <br>Font Awesome
 
-file:///C:/Users/reaga/bootcamp/work-calendar/index.html
+<a href="https://reagan1440.github.io/work-calendar/">link</a>
